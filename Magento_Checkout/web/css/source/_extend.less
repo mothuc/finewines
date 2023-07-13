@@ -1,0 +1,34 @@
+& when (@media-common = true ) {
+    .header-triggers #toggle-search {
+        align-items: center;
+        cursor: pointer;
+        &::before {
+            content: @icon-search;
+            font-size: 28px;
+            line-height: inherit;
+            color: #fff;
+            font-family: 'icons-blank-theme';
+            vertical-align: middle;
+            display: inline-block;
+            font-weight: normal;
+            overflow: hidden;
+            speak: none;
+            text-align: center;
+        }
+    }
+}
+
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .header-triggers #toggle-search {
+
+        &::before {
+            display: none;
+        }
+
+        &::after {
+            content: "Søg";
+            color: @color-white;
+        }
+    }
+}

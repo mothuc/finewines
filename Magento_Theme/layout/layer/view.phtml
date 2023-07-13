@@ -1,0 +1,19 @@
+<div class="filter-title" data-role="collapsible">
+    <div class="filter-title-inner" data-role="title">
+        <span class="title">Filters</span>
+        <span class="toggle-icon"></span>
+    </div>
+    <div class="filter-options" data-role="content">
+        <?php echo $block->getChildHtml(); ?>
+    </div>
+</div>
+<script>
+    require(['jquery'], function ($) {
+        $(document).ready(function () {
+            $('.filter-title').on('click', function () {
+                $(this).toggleClass('active');
+                $(this).next('.filter-options').slideToggle();
+            });
+        });
+    });
+</script>

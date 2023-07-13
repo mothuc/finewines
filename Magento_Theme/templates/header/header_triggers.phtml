@@ -1,0 +1,23 @@
+<?php
+/**
+ * Template for top header
+ *
+ * @var $block \Magento\Framework\View\Element\Template
+ * @var \Magento\Customer\Block\Account\AuthorizationLink $block
+ */
+?>
+<span class="login-header-link">
+    <?php if (!$block->isLoggedIn()): ?>
+        <a class="login-link" href="/customer/account/login">
+            <span><?= __('Login') ?></span>
+        </a>
+    <?php else: ?>
+        <?= $block->getChildHtml('header') ?>
+        <a class="action my-account account-header-link" href="/customer/account">
+            <span class="account-header-text"><?= __('My account') ?></span>
+        </a>
+    <?php endif; ?>
+
+    <?= $block->getChildHtml('customer') ?>
+</span>
+<span id="toggle-search"></span>

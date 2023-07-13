@@ -1,0 +1,16 @@
+@import '../_poster.less';
+
+//Mobile
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .homepage-poster-bottom {
+        margin-top: 30px;
+
+        .poster-row1 .poster-text-container {
+            background-image: url("@{baseDir}images/section4-1.png")
+        }
+
+        .poster-row2 .poster-text-container {
+            background-image: url("@{baseDir}images/section4-2.jpg")
+        }
+    }
+}

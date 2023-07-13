@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <container name="home-top-alert" htmlClass="home-top-alert" htmlTag="div">
+        <block class="Magento\Framework\View\Element\Template" name="top-aleart"
+               template="Magento_Cms::top.alert.phtml"/>
+    </container>
+
+    <referenceBlock name="page.main.title" remove="true"/>
+
+    <move element="home-top-alert" destination="page.wrapper" before="header.container"/>
+
+    <referenceContainer name="content">
+        <block class="Magento\Cms\Block\Block" name="home.slider">
+            <arguments>
+                <argument name="block_id" xsi:type="string">banner-slider</argument>
+            </arguments>
+        </block>
+
+        <block class="Magento\Cms\Block\Block" name="section_alert">
+            <arguments>
+                <argument name="block_id" xsi:type="string">section-alert</argument>
+            </arguments>
+        </block>
+
+        <block class="Magento\Cms\Block\Block" name="homepage.tab.category">
+            <arguments>
+                <argument name="block_id" xsi:type="string">homepage-tab-category</argument>
+            </arguments>
+        </block>
+
+        <block class="Magento\Cms\Block\Block" name="homepage.poster.top">
+            <arguments>
+                <argument name="block_id" xsi:type="string">homepage-poster-top</argument>
+            </arguments>
+        </block>
+
+        <block class="Magento\Cms\Block\Block" name="homepage.newproduct.widget">
+            <arguments>
+                <argument name="block_id" xsi:type="string">homepage-newproduct-widget</argument>
+            </arguments>
+        </block>
+
+        <block class="Magento\Cms\Block\Block" name="homepage.poster.bottom">
+            <arguments>
+                <argument name="block_id" xsi:type="string">homepage-poster-bottom</argument>
+            </arguments>
+        </block>
+
+        <container name="homepage-news" htmlClass="homepage-news" htmlTag="div" after="homepage.poster.bottom">
+        </container>
+
+        <block class="Magento\Cms\Block\Block" name="homepage.feedback">
+            <arguments>
+                <argument name="block_id" xsi:type="string">homepage-feedback</argument>
+            </arguments>
+        </block>
+
+    </referenceContainer>
+</page>

@@ -1,0 +1,68 @@
+& when (@media-common  = true) {
+    .homepage-tab-category {
+        padding-top: 50px;
+        margin-bottom: 50px;
+    }
+
+    .homepage-tab-category h4 {
+        font-size: 1.6rem;
+    }
+
+
+    .homepage-tab-category .tab-direction {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-left: 0;
+
+        li {
+            padding: 1.4rem 2rem;
+        }
+
+        li > a {
+            transition: all .3s;
+            color: @color-black;
+            text-decoration: none;
+
+            font-family: @font-family__regular;
+        }
+    }
+
+    .tab-direction li a {
+        position: relative;
+        display: inline-block;
+        padding-bottom: 5px; /* Adjust the spacing between the tab text and the border */
+    }
+
+    .tab-direction li a:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        border-bottom: 2px solid transparent;
+        transition: border-color 0.2s ease-in-out;
+    }
+
+    .tab-direction .ui-tabs-active a:after {
+        border-bottom-color: #000000;
+    }
+
+    #tabs-2, #tabs-3 {
+        display: none;
+    }
+}
+
+//Desktop
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .tab-direction a {
+        font-size: 3rem;
+    }
+}
+
+//Mobile
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .tab-direction a {
+        font-size: 2.4rem;
+    }
+}

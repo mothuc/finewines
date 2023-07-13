@@ -1,0 +1,112 @@
+
+& when (@media-common  = true) {
+    .homepage-poster-container {
+        background-color: @color-black;
+    }
+
+
+    .poster-content {
+        padding-top: 50px;
+        padding-bottom: 20px;
+    }
+
+    .poster-text-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .poster-text-content {
+        padding: 30px;
+    }
+}
+
+//Desktop
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .homepage-poster-container {
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+
+    .poster-content {
+        display: flex;
+        justify-content: center;
+        align-items: stretch;
+
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 1230px;
+    }
+
+        .poster-row1 ,
+    .poster-row2 {
+        background: url('@{baseDir}images/section2-bg.png');
+    }
+
+    .poster-row1{
+        background-position: left top;
+        background-repeat: no-repeat;
+    }
+
+    .poster-row2 {
+        background-position: right bottom;
+        background-repeat: no-repeat;
+    }
+
+    .poster-content.item2 {
+        flex-direction: row-reverse;
+    }
+
+    .poster-text-container,
+    .poster-img {
+        width: 50%;
+        flex-grow: 1;
+    }
+
+    .poster-text-container {
+        background: #211d1d;
+        box-sizing: border-box;
+    }
+
+    .poster-img>img {
+        max-width: 100%;
+        min-height: 100%;
+        object-fit: cover;
+    }
+
+
+}
+
+//Mobile
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .poster-content {
+
+    }
+
+    .poster-img>img {
+        display: none;
+    }
+
+    .poster-text-container {
+        width: 100%;
+        position: relative;
+        height: 440px;
+        background-position: center;
+        background-size: cover;
+    }
+
+    .poster-text-content {
+        position: relative;
+    }
+
+    .poster-text-container:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        overflow: auto;
+        background-color: rgba(54,54,54,.5);
+    }
+}

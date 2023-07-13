@@ -1,0 +1,106 @@
+& when (@media-common = true) {
+    .header-triggers {
+        display: flex;
+        justify-content: flex-end;
+
+        ul {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin: 0;
+
+            li {
+                margin: 0;
+            }
+        }
+    }
+
+    .header-triggers ul span {
+        display: none;
+    }
+
+    .show-cart.count-positive::after {
+        content: "";
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background-color: #ffffff;
+        position: absolute;
+        top: -10px;
+        right: 1px;
+        transform: translate(50%, 20%);
+    }
+
+}
+
+//Desktop
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .header-triggers ul span {
+        display: inline;
+    }
+
+    .header-triggers {
+        gap: 16px;
+    }
+}
+
+//Mobile
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .header-triggers .toggle-search {
+        &::before {
+            content: @icon-search;
+            font-size: 28px;
+            line-height: inherit;
+            color: #fff;
+            font-family: 'icons-blank-theme';
+            vertical-align: middle;
+            display: inline-block;
+            font-weight: normal;
+            overflow: hidden;
+            speak: none;
+            text-align: center;
+        }
+    }
+
+    .header-triggers .show-cart {
+        position: relative;
+
+        &::before {
+            content: "";
+            background: url("@{baseDir}images/bag-icon-white.svg") no-repeat;
+            width: 20px;
+            display: inline-block;
+            color: @color-white;
+            height: 20px;
+            background-size: contain;
+
+        }
+    }
+
+    .header-triggers {
+        gap: 8px;
+
+        .login-header-link .login-link {
+            display: none;
+        }
+
+        .account-header-text {
+            display: none;
+        }
+
+        .account-header-link::before {
+            content: '\e627';
+            font-size: 28px;
+            line-height: inherit;
+            color: #fff;
+            font-family: 'icons-blank-theme';
+            vertical-align: middle;
+            display: inline-block;
+            font-weight: normal;
+            overflow: hidden;
+            speak: none;
+            text-align: center;
+        }
+    }
+}

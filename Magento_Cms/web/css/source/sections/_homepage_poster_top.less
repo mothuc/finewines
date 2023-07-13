@@ -1,0 +1,23 @@
+@import "../_poster.less";
+
+& when (@media-common  = true) {
+
+}
+
+//Desktop
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+
+}
+
+//Mobile
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+      .homepage-poster-top {
+        .poster-row1 .poster-text-container {
+            background-image: url("@{baseDir}images/section2.png")
+        }
+
+        .poster-row2 .poster-text-container {
+            background-image: url("@{baseDir}images/section2-poster-2.jpg")
+        }
+    }
+}

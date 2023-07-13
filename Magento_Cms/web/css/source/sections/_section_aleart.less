@@ -1,0 +1,22 @@
+& when(@media-common  =true) {
+    .section-aleart-content {
+        background: #eaaf47;
+        padding: 9px 5px;
+        margin-top: -6px;
+
+        p {
+            margin: 0;
+        }
+    }
+}
+//Desktop
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+
+}
+
+//Mobile
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .section-aleart-content {
+
+    }
+}

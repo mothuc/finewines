@@ -1,0 +1,37 @@
+@import "module/_header_triggers.less";
+
+& when (@media-common =true ) {
+    //Set loading animation for whole page
+    #loading {
+        background-color: #080808;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 99;
+
+        svg {
+            position: absolute;
+            max-width: 200px;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.3;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    }
+}

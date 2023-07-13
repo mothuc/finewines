@@ -1,0 +1,58 @@
+<?php
+/** @var \Magento\Catalog\Block\Product\View $block */
+$product = $block->getProduct();
+$productAttributes = [
+    'land',
+    'region',
+    'sub_region',
+    'distrikt_',
+    'sub_distrikt',
+    'argang'
+];
+
+$attributes = [];
+
+foreach ($productAttributes as $attributeCode) {
+    $attribute = $product->getResource()->getAttribute($attributeCode);
+
+    if ($attribute) {
+        $frontendLabel = $this->escapeHtml($attribute->getFrontendLabel());
+        $frontendValue = $this->escapeHtml($attribute->getFrontend()->getValue($product));
+
+        $attributes[$attributeCode] = [
+            'label' => $frontendLabel,
+            'value' => $frontendValue
+        ];
+    }
+}
+?>
+
+<div class="tabs-product-info">
+    <div id="tabs-product-attribute">
+        <ul class="tab-title">
+            <li><a href="#tab1">Description</a></li>
+            <li><a href="#tab2">Attribute</a></li>
+        </ul>
+        <div id="tab1" class="desc">
+            <p><?php echo $product->getDescription(); ?></p>
+        </div>
+        <div id="tab2" class="tab-atributes">
+            <table id="attribute-table">
+                <tbody>
+                <?php foreach ($attributes as $attribute): ?>
+                    <?php if (!empty($attribute['value'])): ?>
+                        <tr>
+                            <th>
+                                <p><?php echo $attribute['label']; ?></p>
+                            </th>
+                            <td>
+                                <p><?php echo $attribute['value']; ?></p>
+                            </td>
+                        </tr>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

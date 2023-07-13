@@ -1,0 +1,21 @@
+& when(@media-common  =true) {
+    .slider .slide img {
+        width: 100%;
+    }
+
+    .slider .slide2 {
+        display: none;
+    }
+}
+//Desktop
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+
+}
+
+//Mobile
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .slider .slide {
+        height: 640px;
+        overflow-y: hidden;
+    }
+}

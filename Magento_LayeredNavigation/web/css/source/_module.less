@@ -1,0 +1,261 @@
+// /**
+//  * Copyright © Magento, Inc. All rights reserved.
+//  * See COPYING.txt for license details.
+//  */
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+
+    .block.filter {
+        margin-bottom: @indent__xl;
+
+        .filter-title {
+            margin-bottom: @indent__base;
+
+            strong {
+                font-size: 18px;
+            }
+        }
+    }
+
+    .block-subtitle {
+        display: inline-block;
+        margin-bottom: @indent__s;
+    }
+
+    .filter-current {
+        .item {
+            margin-bottom: @indent__s;
+
+            margin: 0 8px 8px 0;
+            background-color: #f1ede7;
+            padding: 5px 10px 5px 10px;
+            display: inline-block;
+
+            a.action.remove {
+                color: @color-black;
+
+                span {
+                    display: none;
+                }
+
+                &::before {
+                    content: @icon-remove;
+                    font-family: icons-blank-theme;
+                    font-size: 20px;
+                    vertical-align: middle;
+                    text-align: center;
+                    overflow: hidden;
+                }
+            }
+        }
+
+        .filter-label {
+            display: none;
+            font-weight: @font-weight__bold;
+
+            &:after {
+                content: ':';
+            }
+        }
+
+        + .filter-actions {
+            margin-bottom: @indent__l;
+        }
+    }
+
+    .filter-options-content {
+        .filter-count-label {
+            &:extend(.abs-visually-hidden all);
+        }
+    }
+
+    .filter-options {
+        margin: 0;
+
+        .filter-options-title {
+            font-size: 1.5rem;
+            font-weight: @font-weight__regular;
+            margin: 0;
+            word-break: break-all;
+            padding: 12px 12px;
+            position: relative;
+
+            &::after,
+            &::before {
+                position: absolute;
+                content: "";
+                top: 50%;
+                left: calc(100% - 6px);
+                transform: translate(-50%,-50%) rotate(-90deg);
+                background-color: currentColor;
+                transition: transform .4s ease-in-out,opacity .4s ease-in-out;
+            }
+
+            &::before {
+                width: 11px;
+                height: 1px;
+                opacity: 1;
+            }
+
+            &::after {
+                width: 1px;
+                height: 11px;
+                opacity: 1;
+            }
+        }
+
+        .filter-options-content {
+            margin: 0 0 @indent__m;
+
+            .item {
+                margin-bottom: 3px;
+
+                .price, a {
+                    color: @text__color__muted;
+                }
+            }
+
+            .items {
+                padding: 0 12px;
+            }
+        }
+
+        .count {
+            .lib-css(color, @text__color__muted);
+
+            &:before {
+                content: '(';
+            }
+
+            &:after {
+                content: ')';
+            }
+        }
+    }
+
+    .items {
+        &:extend(.abs-reset-list all);
+    }
+
+    .filtered {
+        .items {
+            margin: 15px 0;
+        }
+
+        .item {
+            margin-bottom: 6px;
+            padding-left: 22px;
+            position: relative;
+
+            .label {
+                font-weight: @font-weight__bold;
+            }
+
+            .action.remove {
+                &:extend(.abs-remove-button-for-blocks all);
+                left: -6px;
+                position: absolute;
+                top: 0;
+            }
+        }
+
+        & + .actions {
+            margin-bottom: 35px;
+        }
+    }
+
+    //Custom Css
+    .filter-options-item {
+        border-bottom: 1px solid #dad7d3;
+        padding: 0;
+    }
+
+    .filter-options-item.active .filter-options-title::before ,
+    .filter-options-item.active .filter-options-title::after {
+        transform: translate(-50%,-50%) rotate(90deg);
+    }
+
+    .filter-options-item.active .filter-options-title::before {
+        opacity: 0;
+    }
+
+    .block-actions.filter-actions {
+        .action.clear.filter-clear {
+            color: @color-black;
+        }
+    }
+}
+
+//
+//  Mobile
+//  _____________________________________________
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .page-with-filter {
+        .columns {
+            .sidebar-main {
+                .lib-vendor-prefix-order(0);
+            }
+        }
+    }
+
+    .block-content.filter-content {
+        position: absolute;
+        background: @color-background;
+        z-index: 9;
+        top: -181px;
+        right: 0;
+        bottom: 0;
+        width: 75%;
+        margin-right: -15px;
+        display: none;
+
+        .filter-content-title {
+            display: block;
+            text-align: center;
+            padding: 15px;
+            font-size: 1.8rem;
+            font-weight: 500;
+            line-height: 50px;
+        }
+
+        .filter-current {
+            padding: 0 24px;
+        }
+
+        .block-actions.filter-actions {
+            padding: 0 24px;
+        }
+
+        .filter-content-title::after {
+            float: right;
+            content: @icon-remove;
+            font-family: 'icons-blank-theme';
+            font-size: 36px;
+            font-weight: 900;
+            line-height: 50px;
+        }
+    }
+
+
+    .block.filter {
+        margin: 0;
+    }
+
+}
+
+
+//Desktop
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .block-content.filter-content {
+        display: block !important;
+    }
+
+    .filter-content-title {
+        display: none;
+    }
+}

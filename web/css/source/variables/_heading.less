@@ -1,0 +1,32 @@
+@c-black : #000000;
+
+& when (@media-common = true) {
+    h1, h2, h3, h4, h5, h6 {
+        margin-top: 0;
+        color: @c-black;
+        font-family: @font-family__base;
+        font-weight: 400;
+        text-align: unset;
+        line-height: 1;
+        transition: color .2s ease-in-out;
+    }
+
+    p, .intro, small {
+        font-weight: 400;
+        color: @c-black;
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+
+    h1 {
+        .lib-font-size(26);
+    }
+
+    h2 {
+        .lib-font-size(22);
+    }
+
+    ul, li {
+        list-style: none;
+    }
+}

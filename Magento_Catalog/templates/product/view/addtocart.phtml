@@ -1,0 +1,64 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var $block \Magento\Catalog\Block\Product\View */
+?>
+<?php $_product = $block->getProduct(); ?>
+<?php $buttonTitle = __('Add to Cart'); ?>
+<?php if ($_product->isSaleable()) : ?>
+    <div class="box-tocart">
+        <div class="fieldset">
+            <?php if ($block->shouldRenderQuantity()) : ?>
+                <div class="field qty">
+                    <div class="control">
+                        <a href="javascript:" class="decrease-qty" style="color: black">
+                            <svg width="11" height="11" role="presentation" viewBox="0 0 16 2"
+                                 style="stroke-width: 2px;">
+                                <path d="M1,1 L15,1" stroke="currentColor" fill="none" fill-rule="evenodd"
+                                      stroke-linecap="square"></path>
+                            </svg>
+                        </a>
+                        <input type="number"
+                               name="qty"
+                               id="qty"
+                               min="0"
+                               value="<?= $block->getProductDefaultQty() * 1 ?>"
+                               title="<?= $block->escapeHtmlAttr(__('Qty')) ?>"
+                               class="input-text qty"
+                               data-validate="<?= $block->escapeHtml(json_encode($block->getQuantityValidators())) ?>"
+                        />
+                        <a style="color: black" href="javascript:" class="increase-qty">
+                            <svg width="11" height="11" role="presentation" viewBox="0 0 16 16"
+                                 style="stroke-width: 2px;">
+                                <g stroke="currentColor" fill="none" fill-rule="evenodd" stroke-linecap="square">
+                                    <path d="M8,1 L8,15"></path>
+                                    <path d="M1,8 L15,8"></path>
+                                </g>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            <?php endif; ?>
+            <div class="actions">
+                <button type="submit"
+                        title="<?= $block->escapeHtmlAttr($buttonTitle) ?>"
+                        class="action primary tocart"
+                        id="product-addtocart-button" disabled>
+                    <span><?= $block->escapeHtml($buttonTitle) ?></span>
+                </button>
+                <?= $block->getChildHtml('', true) ?>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>
+<script type="text/x-magento-init">
+    {
+        "#product_addtocart_form": {
+            "Magento_Catalog/js/validate-product": {}
+        }
+    }
+</script>
+

@@ -1,0 +1,43 @@
+& when (@media-common = true ) {
+    .homepage-feedback {
+        padding-top: 80px;
+        padding-bottom: 80px;
+        background: #191919;
+        color: @color-white;
+
+        .feedback-container {
+            max-width: 550px;
+            margin: auto;
+        }
+
+        .feedback-content {
+            p {
+                font-size: 22px;
+                text-align: center;
+            }
+        }
+
+        .feedback-img {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px 0;
+
+            img {
+                max-width: 160px;
+                margin: auto;
+            }
+        }
+    }
+
+}
+
+//Desktop
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+
+}
+
+//Mobile
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+
+}

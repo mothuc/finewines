@@ -1,0 +1,35 @@
+@import 'sections/_banner_slider.less';
+@import 'sections/_section_aleart.less';
+@import 'sections/_homepage_tab.less';
+@import 'sections/_homepage_poster_top.less';
+@import 'sections/_homepage_poster_bottom.less';
+@import 'sections/_homepage_news.less';
+@import 'sections/_homepage_feedback.less';
+@import 'sections/_footer_blocks';
+
+
+& when (@media-common = true ) {
+    .home-top-alert {
+        text-align: center;
+        padding: 13px 15px;
+        background-color: #cca681;
+        color: #000;
+    }
+}
+
+//Mobile
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .home-top-alert {
+        font-size: 1.1rem;
+    }
+}
+
+
+//Desktop
+.media-width(@extremum, @break ) when (@extremum = 'min' ) and (@break = @screen__m) {
+    .home-top-alert {
+        font-size: 13px;
+    }
+}
+
+

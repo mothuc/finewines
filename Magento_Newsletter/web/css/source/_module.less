@@ -1,0 +1,115 @@
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+
+    //  Newsletter subscription
+    .block.newsletter {
+        margin-bottom: @indent__xl;
+
+        .form.subscribe {
+            display: table;
+            width: 100%;
+        }
+
+        .fieldset {
+            display: table-cell;
+            margin: 0;
+            padding: 0;
+            vertical-align: top;
+        }
+
+        .field {
+            margin: 0;
+
+            .control {
+                display: block;
+            }
+        }
+
+        input {
+            margin-right: 35px;
+            padding: 14px 28px;
+            height: 100%;
+        }
+
+        .title {
+            display: none;
+        }
+
+        .label {
+            &:extend(.abs-visually-hidden all);
+        }
+
+        .actions {
+            display: table-cell;
+            vertical-align: top;
+            width: 1%;
+
+            button {
+                padding: 14px 28px;
+            }
+        }
+
+        .action.subscribe {
+            border-bottom-left-radius: 0;
+            border-top-left-radius: 0;
+            margin-left: -1px;
+        }
+    }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .block.newsletter {
+        max-width: 44%;
+        width: max-content;
+
+        .field {
+            margin-right: 5px;
+
+            &.newsletter {
+                max-width: 220px;
+            }
+
+            .control {
+                width: 100%;
+            }
+        }
+
+        .action.subscribe {
+            border-radius: 0px;
+        }
+    }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .block.newsletter {
+        margin-bottom: @indent__xl;
+
+        .form.subscribe {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 20px;
+
+            .actions {
+                width: 100%;
+            }
+
+            button {
+                width: 100%;
+            }
+        }
+    }
+}
+
+
